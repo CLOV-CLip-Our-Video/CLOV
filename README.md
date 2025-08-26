@@ -10,7 +10,14 @@
 > 실시간 P2P 포토 부스로 어디서든 함께 사진·영상 촬영
 > 
 
-#### [서비스 소개 영상](https://www.youtube.com/watch?v=MoQZfgaZc_E)
+#### 서비스 소개 영상
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=MoQZfgaZc_E">
+    <img src="https://img.youtube.com/vi/MoQZfgaZc_E/maxresdefault.jpg" alt="CLOV 서비스 소개 영상" width="600">
+    <br><br>
+    <img src="https://img.shields.io/badge/소개 영상 보기-FF0000?style=for-the-badge&logo=youtube&logoColor=white">
+  </a>
+</div>
 
 **언제 어디서든 함께 찍고, 공유하는 온라인 포토 부스**
 
@@ -78,10 +85,10 @@ Prometheus · Grafana · k6 · InfluxDB · WebPerf
 
 ## 팀원 소개
 
-| 👑 이예린 | 전가배 | 김은재 |
+| 👑 [이예린](https://github.com/lreowy) | [전가배](https://github.com/jeongabae) | [김은재](https://github.com/EUNJAE1012) |
 | --- | --- | --- |
 | Backend |Backend  | Backend |
 
-| 이현석 | 조영우  | 박승연 |
+| [이현석(Me)](https://github.com/ppower-dev) | [조영우](https://github.com/evermate)  | [박승연](https://github.com/sysysys98) |
 | --- | --- | --- |
 | Frontend | Frontend | Frontend |
