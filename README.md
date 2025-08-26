@@ -59,14 +59,14 @@
 
 
 ## 아키텍쳐
-![architecture](https://github.com/user-attachments/assets/043d05a2-04d1-4232-b903-5cd28e73c703)
+![CLOV Architecture](https://i.imgur.com/FXopagr.png)
 
 ## API 명세
 [API 명세서 바로가기](https://yxin.notion.site/API-2297c9100471819b8c22c55fe0bcf8c2?source=copy_link)
 
 
 ## ERD
-![erd](https://github.com/user-attachments/assets/f768e1f9-13e6-4c34-9d15-36a98465a9cd)
+![CLOV ERD](https://i.imgur.com/MJx5NVR.png)
 
 ## 기술 스택
 
