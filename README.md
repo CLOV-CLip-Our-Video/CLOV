@@ -85,10 +85,10 @@ Prometheus · Grafana · k6 · InfluxDB · WebPerf
 
 ## 팀원 소개
 
-| 👑 이예린 | 전가배 | 김은재 |
+| 👑 [이예린](https://github.com/lreowy) | [전가배](https://github.com/jeongabae) | [김은재](https://github.com/EUNJAE1012) |
 | --- | --- | --- |
 | Backend |Backend  | Backend |
 
-| 이현석 | 조영우  | 박승연 |
+| [이현석](https://github.com/ppower-dev) | [조영우](https://github.com/evermate)  | [박승연](https://github.com/sysysys98) |
 | --- | --- | --- |
 | Frontend | Frontend | Frontend |
