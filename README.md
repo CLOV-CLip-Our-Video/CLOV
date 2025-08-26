@@ -10,7 +10,14 @@
 > 실시간 P2P 포토 부스로 어디서든 함께 사진·영상 촬영
 > 
 
-#### [서비스 소개 영상](https://www.youtube.com/watch?v=MoQZfgaZc_E)
+#### 서비스 소개 영상
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=MoQZfgaZc_E">
+    <img src="https://img.youtube.com/vi/MoQZfgaZc_E/maxresdefault.jpg" alt="CLOV 서비스 소개 영상" width="600">
+    <br><br>
+    <img src="https://img.shields.io/badge/▶️_영상으로_보는_CLOV-FF0000?style=for-the-badge&logo=youtube&logoColor=white">
+  </a>
+</div>
 
 **언제 어디서든 함께 찍고, 공유하는 온라인 포토 부스**
 
