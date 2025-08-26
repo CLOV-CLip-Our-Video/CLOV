@@ -1,0 +1,91 @@
+/* 클롭 컬러 시스템 - 치즈 테마 */
+:root {
+  /* 🎨 메인 컬러셋 */
+  --color-background: #fafafa;
+  --color-card-background: #ffffff;
+  --color-text: #333333;
+  --color-text-secondary: #666666;
+  --color-text-light: #999999;
+  --color-primary: #ffd966;
+  --color-primary-light: #ffe599;
+  --color-primary-dark: #ffcc02;
+  --color-primary-darker: #f1c232;
+
+  /* 📱 인터페이스 컬러 */
+  --color-button-background: var(--color-primary);
+  --color-button-text: #2c2c2c;
+  --color-button-hover: var(--color-primary-dark);
+  --color-button-disabled: #e0e0e0;
+  --color-button-disabled-text: #999999;
+
+  /* 🎯 상태 컬러 */
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-warning: #ff9800;
+  --color-info: #2196f3;
+
+  /* 🎭 WebRTC 관련 컬러 */
+  --color-camera-on: var(--color-success);
+  --color-camera-off: var(--color-error);
+  --color-mic-on: var(--color-success);
+  --color-mic-off: var(--color-error);
+  --color-recording: #ff1744;
+  --color-connection-good: var(--color-success);
+  --color-connection-poor: var(--color-warning);
+  --color-connection-bad: var(--color-error);
+
+  /* 🖼️ 프레임 및 필터 컬러 */
+  --color-frame-border: var(--color-primary-darker);
+  --color-frame-background: rgba(255, 217, 102, 0.1);
+  --color-filter-active: var(--color-primary-darker);
+  --color-filter-inactive: #e0e0e0;
+
+  /* 💫 투명도 변형 */
+  --color-primary-opacity-10: rgba(255, 217, 102, 0.1);
+  --color-primary-opacity-20: rgba(255, 217, 102, 0.2);
+  --color-primary-opacity-30: rgba(255, 217, 102, 0.3);
+  --color-primary-opacity-50: rgba(255, 217, 102, 0.5);
+  --color-primary-opacity-80: rgba(255, 217, 102, 0.8);
+
+  --color-background-opacity-50: rgba(250, 250, 250, 0.5);
+  --color-background-opacity-80: rgba(250, 250, 250, 0.8);
+  --color-background-opacity-95: rgba(250, 250, 250, 0.95);
+
+  /* 🎨 그림자 시스템 */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-modal: 0 8px 32px rgba(0, 0, 0, 0.15);
+  --shadow-button: 0 2px 4px rgba(255, 217, 102, 0.4);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  /* 📏 테두리 시스템 */
+  --border-color-default: #e0e0e0;
+  --border-color-focus: var(--color-primary-darker);
+  --border-color-error: var(--color-error);
+  --border-color-success: var(--color-success);
+
+  /* 🎯 입력 필드 컬러 */
+  --color-input-background: #ffffff;
+  --color-input-border: #e0e0e0;
+  --color-input-border-focus: var(--color-primary-darker);
+  --color-input-text: var(--color-text);
+  --color-input-placeholder: var(--color-text-light);
+
+  /* 🎪 로딩 및 진행률 컬러 */
+  --color-loading-primary: var(--color-primary-darker);
+  --color-loading-secondary: var(--color-primary-light);
+  --color-progress-background: #e0e0e0;
+  --color-progress-fill: var(--color-primary-darker);
+
+  /* 📏 간격 시스템 */
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-full: 50%;
+
+  /* 🎭 방 관련 컬러 */
+  --color-room-host: var(--color-primary-darker);
+  --color-room-participant: var(--color-text-secondary);
+  --color-room-waiting: var(--color-warning);
+  --color-room-active: var(--color-success);
+}

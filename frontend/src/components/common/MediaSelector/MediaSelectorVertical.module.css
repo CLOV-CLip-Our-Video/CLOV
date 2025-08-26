@@ -1,0 +1,442 @@
+/* components/Room/MediaSelectorVertical/MediaSelectorVertical.module.css */
+
+.container {
+  width: 100%;
+  height: 100%; /* 부모 높이에 맞춤 */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card-background);
+  overflow: hidden; /* 컨테이너 자체는 오버플로우 방지 */
+  /* ✅ 전체 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.header {
+  flex-shrink: 0; /* 헤더 고정 */
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color-default);
+  background-color: var(--color-card-background);
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  user-select: none;
+}
+
+.closeButton {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1.25rem;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.closeButton:hover {
+  background-color: var(--color-background);
+}
+
+.selectedSection {
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border-default);
+  background-color: var(--color-background);
+  flex-shrink: 0;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.selectedInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.selectedPreview {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--border-radius-medium);
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-primary-opacity-10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.selectedDetails h4 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 0.25rem 0;
+  user-select: none;
+}
+
+.selectedDetails p {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  user-select: none;
+}
+
+.sliderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.sliderLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text);
+  user-select: none;
+}
+
+.sliderValue {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  user-select: none;
+}
+
+.slider {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+  background: linear-gradient(
+    to right,
+    var(--color-primary) 0%,
+    var(--color-primary) var(--intensity, 50%),
+    var(--color-border-default) var(--intensity, 50%),
+    var(--color-border-default) 100%
+  );
+}
+
+.itemsContainer {
+  /* ✅ 남은 공간 모두 사용하되 높이 제한 */
+  flex: 1;
+  min-height: 0; /* flexbox 오버플로우 처리 */
+  max-height: calc(100vh - 300px); /* 뷰포트에서 헤더/선택영역/푸터 제외 */
+
+  /* ✅ 스크롤 설정 강화 */
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 1rem;
+  gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+
+  /* ✅ 터치 디바이스에서 부드러운 스크롤 */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  /* ✅ 스크롤바 강제 표시 */
+  scrollbar-width: auto; /* Firefox에서 스크롤바 항상 표시 */
+
+  /* ✅ 스크롤 영역 내에서는 드래그를 허용하되 전체 페이지 드래그는 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color-default);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-card-background);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* 아이템 크기 고정 */
+  /* ✅ 아이템 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.item:hover {
+  border-color: var(--color-primary-opacity-50);
+  transform: scale(1.01);
+}
+
+.item.selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-opacity-10);
+  transform: scale(1.02);
+  /* box-shadow: 0 4px 12px var(--color-primary-opacity-30); */
+}
+
+.itemPreview {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--color-border-default);
+  background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.itemName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0;
+  user-select: none;
+}
+
+.itemDesc {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  user-select: none;
+}
+
+.checkmark {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.uploadArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-primary-opacity-10);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+  text-align: center;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.uploadArea:hover {
+  background-color: var(--color-primary-opacity-20);
+}
+
+.uploadIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+.uploadTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+  user-select: none;
+}
+
+.uploadDesc {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  user-select: none;
+}
+
+/* ✅ Footer는 조건부로만 표시 - 배경 타입일 때만 */
+.footer {
+  padding: 1rem;
+  border-top: 1px solid var(--color-border-default);
+  background-color: var(--color-card-background);
+  flex-shrink: 0;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-medium);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.button.secondary {
+  border: 1px solid var(--color-border-default);
+  background-color: var(--color-card-background);
+  color: var(--color-text-secondary);
+}
+
+.button.secondary:hover {
+  background-color: var(--color-background);
+}
+
+.button.primary {
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+}
+
+.button.primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.button:disabled,
+.button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--color-text-light);
+  color: var(--color-text-secondary);
+}
+
+.button.primary.disabled {
+  background-color: var(--color-text-light);
+  color: var(--color-text-secondary);
+}
+
+/* ✅ 스크롤바 스타일링 - MediaSelector 전용 (가시성 향상) */
+.itemsContainer::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 증가 */
+}
+
+.itemsContainer::-webkit-scrollbar-track {
+  background: var(--color-background);
+  border-radius: 4px;
+  /* ✅ 스크롤바 트랙 항상 표시 */
+  border: 1px solid var(--color-border-default);
+}
+
+.itemsContainer::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-opacity-50); /* 더 진한 색상 */
+  border-radius: 4px;
+  /* ✅ 스크롤바 thumb 더 명확하게 */
+  border: 1px solid var(--color-primary-opacity-30);
+  min-height: 20px; /* 최소 높이 설정 */
+}
+
+.itemsContainer::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-opacity-70);
+}
+
+/* Firefox 스크롤바 */
+.itemsContainer {
+  scrollbar-width: auto; /* thin에서 auto로 변경 */
+  scrollbar-color: var(--color-primary-opacity-50) var(--color-background);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .selectedInfo {
+    gap: 0.75rem;
+  }
+
+  .selectedPreview {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+
+  .itemPreview {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+
+  .itemsContainer {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .item {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .uploadArea {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ✅ 전역 드래그 방지 규칙 강화 */
+.container *,
+.container img {
+  -webkit-user-drag: none !important;
+  -moz-user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+/* ✅ 버튼들의 드래그 방지 강화 */
+.button,
+.closeButton,
+.item {
+  -webkit-user-drag: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-touch-callout: none !important;
+}

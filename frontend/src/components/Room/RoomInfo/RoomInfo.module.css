@@ -1,0 +1,234 @@
+/* RoomInfo.module.css */
+
+.container {
+  padding: 1rem;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-card);
+  background-color: var(--color-card-background);
+  border: 1px solid var(--border-color-default);
+}
+
+.cameraPreview {
+  width: 100%;
+  max-width: 720px;
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.sectionTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.roomCodeContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.roomCodeLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.roomCode {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-small);
+  font-size: 0.875rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  cursor: pointer;
+  background-color: var(--color-primary-opacity-10);
+  color: var(--color-text);
+}
+
+.copyButton {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.copyButton:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.hostBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.hostText {
+  font-size: 0.75rem;
+  color: var(--color-room-host);
+}
+
+.participantList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.participant {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-background);
+}
+
+.connectionDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.participantName {
+  color: var(--color-text);
+}
+
+.videoPreview {
+  position: relative;
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  background-color: var(--color-background);
+  border: 2px solid var(--border-color-default);
+  aspect-ratio: 4/3;
+  max-height: 160px;
+}
+
+.loadingContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingText {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* 거울 효과 */
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.statusDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.transparencyDisplay {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-background-opacity-80);
+  color: var(--color-text);
+}
+
+.cameraOffContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cameraOffIcon {
+  font-size: 2rem;
+  color: var(--color-text-light);
+}
+
+.cameraOffText {
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.quickControls {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.quickButton {
+  flex: 1;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-small);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.quickButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.primaryButton {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-medium);
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.primaryButton:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.dangerButton {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-medium);
+  font-size: 0.875rem;
+  background-color: var(--color-error);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dangerButton:hover {
+  background-color: #d32f2f;
+}

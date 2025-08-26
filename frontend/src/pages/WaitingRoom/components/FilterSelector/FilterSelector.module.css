@@ -1,0 +1,69 @@
+/* FilterSelector.module.css - Copy from WaitingRoom.module.css */
+
+.settingCard {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: #333;
+}
+
+.filtersGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.filterButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 2px solid var(--border-color-default);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.filterButton:hover {
+  border-color: var(--border-color-default);
+  background: var(--color-background);
+}
+
+.filterButton.active {
+  border-color: var(--color-primary-darker);
+  background: var(--color-primary-opacity-10);
+}
+
+.filterIcon {
+  font-size: 1.5rem;
+}
+
+.filterName {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.moreFilters {
+  text-align: center;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color-default);
+}
+
+.moreText {
+  font-size: 0.85rem;
+  color: var(--color-primary-darker);
+  font-weight: 500;
+}

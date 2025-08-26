@@ -1,0 +1,20 @@
+/* components/Room/ParticipantList/ParticipantList.module.css */
+
+.toggleIcon {
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease;
+}
+
+.toggleIcon.expanded {
+  transform: rotate(0deg);
+}
+
+.participantHover:hover {
+  background-color: var(--color-primary-opacity-10);
+}
+
+.disconnected {
+  text-decoration: line-through;
+  color: var(--color-text-light) !important;
+  opacity: 0.6;
+}

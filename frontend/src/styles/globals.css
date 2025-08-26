@@ -1,0 +1,88 @@
+@import '../assets/colors-cheese.css';
+/* @import '../assets/colors-skyblue.css'; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 폰트 정의 */
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 전역 스타일 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:
+    'Pretendard-Regular',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* CSS 변수 강제 적용을 위한 유틸리티 클래스들 */
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-primary-light {
+  background-color: var(--color-primary-light) !important;
+}
+
+.bg-primary-dark {
+  background-color: var(--color-primary-dark) !important;
+}
+
+.bg-card {
+  background-color: var(--color-card-background) !important;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.text-primary-dark {
+  color: var(--color-primary-darker) !important;
+}
+
+.text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+.text-light {
+  color: var(--color-text-light) !important;
+}
+
+.border-primary {
+  border-color: var(--color-primary-darker) !important;
+}
+
+.border-default {
+  border-color: var(--border-color-default) !important;
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card) !important;
+}
+
+.shadow-button {
+  box-shadow: var(--shadow-button) !important;
+}

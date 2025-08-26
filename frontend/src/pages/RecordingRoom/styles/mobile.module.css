@@ -1,0 +1,366 @@
+/* 모바일 전용 스타일 */
+
+/* 모바일 레이아웃 컨테이너 */
+.mobileContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--color-background);
+  position: relative;
+  padding-bottom: 44px; /* 고정된 컨트롤바를 위한 하단 여백 */
+}
+
+/* 헤더 바 */
+.mobileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 16px;
+  background: var(--color-card-background);
+  border-bottom: 1px solid var(--border-color-default);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menuButton:hover {
+  background: var(--color-hover);
+}
+
+.roomCode {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.participantCount {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 캔버스 영역 */
+.canvasArea {
+  flex: 0 0 auto; /* flex-grow를 0으로 설정하여 과도한 확장 방지 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.canvasWrapper {
+  width: 100%;
+  max-width: 100%;
+  max-height: 60vh; /* 뷰포트 높이의 60%로 제한하여 과도한 공백 방지 */
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 컨트롤 영역 */
+.controlsArea {
+  position: fixed; /* 하단에 완전 고정 */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 4px 16px 6px 16px; /* 위아래 패딩 더 줄이기 */
+  background: var(--color-card-background);
+  border-top: 1px solid var(--border-color-default);
+  min-height: 36px; /* 최소 높이를 더 줄이기 */
+  z-index: 1001; /* 다른 요소들보다 위에 표시 */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가로 구분감 향상 */
+}
+
+.controlsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* gap 줄이기 */
+  flex-wrap: wrap;
+  margin: 0; /* 마진 제거 */
+}
+
+/* 터치 최적화된 버튼들 */
+.mobileButton {
+  height: 28px; /* 높이를 더 줄임 */
+  min-height: 28px !important;
+  min-width: 80px;
+  padding: 4px 10px; /* 패딩 줄이기 */
+  border-radius: 6px; /* 둥근 모서리도 약간 줄임 */
+  font-size: 12px; /* 폰트 크기 약간 줄임 */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px; /* gap 줄이기 */
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobileButton:active {
+  transform: scale(0.95);
+}
+
+/* 노란색 테두리 버튼 */
+.mobileButtonYellow {
+  border: 2px solid #fbbf24 !important;
+  border-radius: 6px !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  padding: 4px 10px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+/* 상태 표시 */
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: var(--color-card-background);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+}
+
+.statusIndicator.recording {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.statusIndicator.countdown {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+/* Bottom Sheet 관련 스타일 */
+.bottomSheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-card-background);
+  border-top: 1px solid var(--border-color-default);
+  border-radius: 20px 20px 0 0;
+  /* 핸들만 노출되도록 조정 */
+  transform: translateY(65%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000; /* MobileControls보다 낮은 z-index */
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.bottomSheet.expanded {
+  transform: translateY(5%); /* 거의 전체 화면 차지 */
+}
+
+.bottomSheetHandle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px; /* 위아래 패딩 줄이기 */
+  cursor: pointer;
+  position: relative;
+  background: var(--color-card-background);
+  border-radius: 20px 20px 0 0;
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+.bottomSheetHandle::before {
+  content: '';
+  width: 60px; /* 핸들바를 더 넓게 */
+  height: 5px; /* 핸들바를 더 두껍게 */
+  background: #6b7280; /* 더 진한 회색으로 변경하여 가시성 향상 */
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.bottomSheetHandle:hover::before {
+  background: #9ca3af;
+}
+
+.bottomSheetHandle:active::before {
+  background: #6b7280;
+}
+
+.bottomSheetContent {
+  padding: 0 20px 20px;
+  overflow-y: auto;
+  max-height: calc(80vh - 50px);
+}
+
+/* Middle Panel 스타일 (RecordingCanvas와 MobileControls 사이 고정 영역) */
+.middlePanel {
+  flex-shrink: 0;
+  background: var(--color-card-background);
+  border-top: 1px solid var(--border-color-default);
+  border-bottom: 1px solid var(--border-color-default);
+  min-height: 180px; /* 최소 높이를 더 늘림 */
+  max-height: 350px; /* 최대 높이를 크게 증가 */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.middlePanelContent {
+  flex: 1;
+  padding: 16px 20px; /* 패딩을 적절히 조정 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+  min-height: 0; /* flex 컨테이너에서 overflow가 제대로 작동하도록 */
+  height: 100%; /* 명시적 높이 설정 */
+  box-sizing: border-box; /* 패딩 포함하여 크기 계산 */
+  /* 스크롤바 스타일링 */
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+/* 웹킷 브라우저 스크롤바 스타일 */
+.middlePanelContent::-webkit-scrollbar {
+  width: 4px;
+}
+
+.middlePanelContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.middlePanelContent::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
+
+.middlePanelContent::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* 화면 비율별 레이아웃 최적화 */
+@media (max-aspect-ratio: 9/16) {
+  /* 매우 세로가 긴 화면 (9:16보다 더 세로) - 좁고 긴 스마트폰 */
+  .middlePanel {
+    max-height: 65vh; /* 높이를 더 많이 늘려서 더 많은 내용 표시 */
+    min-height: 100px;
+  }
+  .canvasArea {
+    padding: 16px 16px;
+  }
+}
+
+/* 약간 긴 스마트폰 */
+@media (min-aspect-ratio: 2/3) {
+  .middlePanel {
+    max-height: 40vh; /* 높이를 더 많이 늘려서 더 많은 내용 표시 */
+    min-height: 100px;
+  }
+}
+
+@media (min-aspect-ratio: 9/16) and (max-aspect-ratio: 3/4) {
+  /* 일반적인 세로 화면 - 대부분의 스마트폰 */
+  .middlePanel {
+    max-height:55vh; /* 높이를 더 많이 늘려서 더 많은 내용 표시 */
+    min-height: 120px;
+  }
+  .canvasArea {
+    padding: 6px 16px;
+  }
+}
+
+@media (min-aspect-ratio: 3/4) {
+  /* 가로 화면이나 정사각형에 가까운 화면 - 태블릿, 가로 모드 */
+  .middlePanel {
+    max-height: 34vh; /* 높이를 더 많이 늘려서 더 많은 내용 표시 */
+    min-height: 120px;
+  }
+  .canvasArea {
+    padding: 8px 16px;
+  }
+}
+
+/* 매우 작은 화면 대응 */
+@media (max-height: 600px) {
+  .canvasArea {
+    padding: 4px 12px;
+  }
+  .middlePanel {
+    max-height: 50vh; /* 높이를 늘려서 더 많은 내용 표시 */
+    min-height: 90px;
+  }
+  .middlePanelContent {
+    padding: 8px 12px;
+  }
+  .controlsArea {
+    padding: 8px 12px;
+  }
+}
+
+/* 반응형 유틸리티 */
+@media (max-width: 768px) {
+  .hideOnMobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .showOnMobileOnly {
+    display: none !important;
+  }
+}
+
+/* 안전 영역 지원 (노치 대응) */
+@supports (padding: max(0px)) {
+  .mobileContainer {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

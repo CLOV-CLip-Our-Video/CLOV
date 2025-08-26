@@ -1,0 +1,530 @@
+LandingPage.module.css .container {
+  min-height: 100vh;
+  background: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 4rem;
+}
+
+/* 왼쪽 콘텐츠 영역 */
+.leftSection {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* 서비스명 */
+.serviceTitle {
+  margin-bottom: 1rem;
+}
+
+.serviceName {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-shadow: var(--shadow-button);
+  line-height: 1;
+}
+
+.serviceSubtitle {
+  font-size: 1.3rem;
+  color: var(--color-text-secondary);
+  margin: 0.5rem 0 0 0;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+/* 서비스 소개 */
+.intro {
+  margin-bottom: 1rem;
+}
+
+.mainTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--color-primary);
+  position: relative;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  border-radius: 2px;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 액션 영역 */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 방 생성 버튼 */
+.createButton {
+  width: 100%;
+  background: var(--color-button-background);
+  color: var(--color-button-text);
+  border: none;
+  border-radius: var(--border-radius-large);
+  padding: 1.2rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-button);
+}
+
+.createButton:hover:not(:disabled) {
+  background: var(--color-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(114, 197, 232, 0.4);
+}
+
+.createButton:disabled {
+  background: var(--color-button-disabled);
+  color: var(--color-button-disabled-text);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 방 참여 섹션 */
+.joinSection {
+  position: relative;
+}
+
+.joinSection::before {
+  content: '또는';
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-background);
+  padding: 0 1rem;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.joinSection::after {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border-color-default);
+  z-index: -1;
+}
+
+.joinForm {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.roomCodeInput {
+  flex: 1;
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--color-input-border);
+  border-radius: var(--border-radius-medium);
+  font-size: 1.1rem;
+  background: var(--color-input-background);
+  color: var(--color-input-text);
+  transition: border-color 0.3s ease;
+}
+
+.roomCodeInput::placeholder {
+  color: var(--color-input-placeholder);
+}
+
+.roomCodeInput:focus {
+  outline: none;
+  border-color: var(--color-input-border-focus);
+}
+
+.roomCodeInput:disabled {
+  background: var(--color-button-disabled);
+  cursor: not-allowed;
+}
+
+.joinButton {
+  background: var(--color-card-background);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-medium);
+  padding: 1rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.joinButton:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: var(--color-button-text);
+  transform: translateY(-1px);
+}
+
+.joinButton:disabled {
+  background: var(--color-button-disabled);
+  color: var(--color-button-disabled-text);
+  border-color: var(--color-button-disabled);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 오른쪽 이미지 영역 */
+.rightSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+}
+
+.visualContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* 임시 플레이스홀더 스타일 */
+.placeholder {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circleGroup {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.circle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+  animation: float 3s ease-in-out infinite;
+}
+
+.circle1 {
+  top: 0;
+  right: 0;
+  background: linear-gradient(135deg, #f8e8d0, #f0d8a8);
+  animation-delay: 0s;
+}
+
+.circle2 {
+  top: 50px;
+  right: 200px;
+  background: linear-gradient(135deg, #ffd4a3, #ffb366);
+  animation-delay: 0.5s;
+}
+
+.circle3 {
+  bottom: 50px;
+  left: 0;
+  background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+  animation-delay: 1s;
+}
+
+.circle4 {
+  bottom: 0;
+  right: 100px;
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  animation-delay: 1.5s;
+}
+
+.avatar {
+  font-size: 3rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* 장식 요소들 */
+.decorativeElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.decorativeElements > div {
+  position: absolute;
+  font-size: 1.5rem;
+  background: var(--color-card-background);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.element1 {
+  top: 20%;
+  left: 10%;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-opacity-20),
+    var(--color-primary-opacity-10)
+  );
+  animation-delay: 0s;
+}
+
+.element2 {
+  top: 10%;
+  right: 30%;
+  background: linear-gradient(135deg, #ff6b6b20, #ff6b6b10);
+  animation-delay: 0.3s;
+}
+
+.element3 {
+  right: 10%;
+  top: 60%;
+  background: linear-gradient(135deg, #ff8a8020, #ff8a8010);
+  animation-delay: 0.6s;
+}
+
+.element4 {
+  bottom: 30%;
+  left: 20%;
+  background: linear-gradient(135deg, #ffd93d20, #ffd93d10);
+  animation-delay: 0.9s;
+}
+
+.element5 {
+  bottom: 10%;
+  right: 40%;
+  background: linear-gradient(135deg, #6c5ce720, #6c5ce710);
+  animation-delay: 1.2s;
+}
+
+.element6 {
+  top: 40%;
+  left: 5%;
+  background: linear-gradient(135deg, #ff9f4320, #ff9f4310);
+  animation-delay: 1.5s;
+}
+
+/* 애니메이션 */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+/* 로딩 상태 */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem 1rem;
+  }
+
+  .leftSection {
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .rightSection {
+    min-height: 400px;
+  }
+
+  .placeholder {
+    width: 400px;
+    height: 400px;
+  }
+
+  .circleGroup {
+    width: 300px;
+    height: 300px;
+  }
+
+  .circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .avatar {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .serviceName {
+    font-size: 3rem;
+  }
+
+  .mainTitle {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .joinForm {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .roomCodeInput,
+  .joinButton {
+    width: 100%;
+  }
+
+  .placeholder {
+    width: 300px;
+    height: 300px;
+  }
+
+  .circleGroup {
+    width: 250px;
+    height: 250px;
+  }
+
+  .circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .avatar {
+    font-size: 1.8rem;
+  }
+
+  .decorativeElements > div {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceName {
+    font-size: 2.5rem;
+  }
+
+  .mainTitle {
+    font-size: 1.7rem;
+  }
+
+  .createButton {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .placeholder {
+    width: 250px;
+    height: 250px;
+  }
+
+  .circleGroup {
+    width: 200px;
+    height: 200px;
+  }
+
+  .circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .avatar {
+    font-size: 1.5rem;
+  }
+}

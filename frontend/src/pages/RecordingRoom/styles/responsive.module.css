@@ -1,0 +1,204 @@
+/* 반응형 유틸리티 클래스 */
+
+/* 디스플레이 유틸리티 */
+.hideOnMobile {
+  display: block;
+}
+
+.showOnMobileOnly {
+  display: none;
+}
+
+.hideOnTablet {
+  display: block;
+}
+
+.showOnTabletOnly {
+  display: none;
+}
+
+.hideOnDesktop {
+  display: block;
+}
+
+.showOnDesktopOnly {
+  display: none;
+}
+
+/* 레이아웃 유틸리티 */
+.mobileStack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.desktopGrid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+}
+
+/* 터치 최적화 */
+.touchTarget {
+  min-width: 44px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touchTarget:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* 스크롤 최적화 */
+.scrollable {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* 가로 스크롤 */
+.horizontalScroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontalScroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* 안전 영역 */
+.safeArea {
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 반응형 텍스트 크기 */
+.responsiveText {
+  font-size: clamp(14px, 4vw, 16px);
+}
+
+.responsiveTitle {
+  font-size: clamp(18px, 5vw, 24px);
+}
+
+.responsiveSubtitle {
+  font-size: clamp(16px, 4.5vw, 20px);
+}
+
+/* 반응형 간격 */
+.responsivePadding {
+  padding: clamp(12px, 4vw, 24px);
+}
+
+.responsiveMargin {
+  margin: clamp(8px, 2vw, 16px);
+}
+
+/* 반응형 그리드 */
+.responsiveGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* 미디어 쿼리 기반 클래스 */
+@media (max-width: 767px) {
+  .hideOnMobile {
+    display: none !important;
+  }
+  
+  .showOnMobileOnly {
+    display: block !important;
+  }
+  
+  .mobileStack {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  .desktopGrid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  /* 모바일에서의 글자 크기 조정 */
+  .responsiveText {
+    font-size: 14px;
+  }
+  
+  .responsiveTitle {
+    font-size: 20px;
+  }
+  
+  .responsiveSubtitle {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hideOnTablet {
+    display: none !important;
+  }
+  
+  .showOnTabletOnly {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hideOnDesktop {
+    display: none !important;
+  }
+  
+  .showOnDesktopOnly {
+    display: block !important;
+  }
+  
+  .desktopGrid {
+    display: grid !important;
+  }
+  
+  .mobileStack {
+    display: grid !important;
+    grid-template-columns: 1fr 340px !important;
+    gap: 20px !important;
+  }
+}
+
+/* 포커스 스타일 (키보드 네비게이션) */
+.focusVisible:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 애니메이션 감소 설정 지원 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 다크/라이트 모드 지원 */
+@media (prefers-color-scheme: dark) {
+  .autoDark {
+    background: var(--color-dark-background, #1a1a1a);
+    color: var(--color-dark-text, #ffffff);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .autoLight {
+    background: var(--color-light-background, #ffffff);
+    color: var(--color-light-text, #000000);
+  }
+}

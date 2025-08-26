@@ -1,0 +1,739 @@
+/* components/common/SideMenu/SideMenu.module.css */
+
+.container {
+  position: relative;
+  height: 100vh;
+  /* 전체 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.mainSidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card-background);
+  /* box-shadow: var(--shadow-card); */
+  border-right: 1px solid var(--color-input-border);
+  position: relative;
+  z-index: 20;
+  width: 80px;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+  /* 드래그 방지 */
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border-default);
+  background-color: var(--color-primary-opacity-10);
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  user-select: none;
+}
+
+.nav {
+  flex: 1;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.menuItem {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-text-secondary);
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.menuItem:hover {
+  background-color: var(--color-background-opacity-50);
+}
+
+.menuItem.active {
+  background-color: var(--color-primary-opacity-10);
+  color: var(--color-primary);
+}
+
+.menuIcon {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  user-select: none;
+}
+
+.menuLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+.collapseSection {
+  padding: 1rem;
+  border-top: 1px solid var(--color-border-default);
+  height: 80px; /* 고정 높이로 공간 유지 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapseButton {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-medium);
+  border: none;
+  background-color: var(--color-text-light);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.collapseButton:hover {
+  background-color: var(--color-text-secondary);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 80px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.expandedPanel {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  width: 320px;
+  /* ✅ 뷰포트 높이 고정 */
+  height: 100vh;
+  max-height: 100vh;
+  background-color: var(--color-card-background);
+  border-right: 1px solid var(--color-border-default);
+  box-shadow: var(--shadow-modal);
+  z-index: 15;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  /* ✅ 패널 전체 오버플로우 방지 */
+  overflow: hidden;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.expandedPanel.open {
+  transform: translateX(0);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border-default);
+  background-color: var(--color-card-background);
+  /* ✅ 헤더 고정 */
+  flex-shrink: 0;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.panelTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  user-select: none;
+}
+
+.closeButton:hover {
+  background-color: var(--color-text-light);
+}
+
+.panelContent {
+  /* ✅ 남은 공간 모두 사용하되 오버플로우 방지 */
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  /* 드래그 방지 (단, 내부 스크롤은 허용) */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* History 페이지 전용 스타일 */
+.historyContainer {
+  padding: 1rem;
+  height: 100%;
+  overflow-y: auto;
+  /* ✅ 부드러운 스크롤 */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.historyTitle {
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-card-background);
+  transition: background-color 0.2s ease;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.historyItem:hover {
+  background-color: var(--color-background);
+}
+
+.historyThumbnail {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-primary-opacity-20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.historyInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.historyName {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: none;
+}
+
+.historyMeta {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  margin: 0;
+  user-select: none;
+}
+
+.historyActions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.historyButton {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-small);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.historyButton:hover {
+  opacity: 0.8;
+}
+
+.historyButton.primary {
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+}
+
+.historyButton.secondary {
+  border: 1px solid var(--color-border-default);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+}
+
+.historyButton.secondary:hover {
+  background-color: var(--color-background);
+}
+
+.deleteSection {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-default);
+}
+
+.deleteButton {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--color-error);
+  border-radius: var(--border-radius-medium);
+  background-color: transparent;
+  color: var(--color-error);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.deleteButton:hover {
+  background-color: rgba(244, 67, 54, 0.05);
+}
+
+/* Settings 페이지 전용 스타일 */
+.settingsContainer {
+  padding: 1rem;
+  height: 100%;
+  overflow-y: auto;
+  /* ✅ 부드러운 스크롤 */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.settingsSection {
+  margin-bottom: 1.5rem;
+}
+
+.settingsTitle {
+  display: flex;
+  align-items: center;
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  user-select: none;
+  gap: 0.5rem;
+}
+
+.settingsSelect {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-card-background);
+  color: var(--color-text);
+  transition: all 0.2s ease;
+  /* ✅ select는 사용자 상호작용 허용 */
+  user-select: auto;
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.settingsSelect:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  /* box-shadow: 0 0 0 2px var(--color-primary-opacity-20); */
+}
+
+.qualityOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.qualityOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.qualityRadio {
+  margin-top: 0.25rem;
+  accent-color: var(--color-primary);
+}
+
+.qualityLabel {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+.qualityDesc {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  user-select: none;
+}
+
+.otherSettings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.settingItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.settingCheckbox {
+  margin-top: 0.25rem;
+  accent-color: var(--color-primary);
+}
+
+.settingLabel {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.settingDesc {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  user-select: none;
+}
+
+.resetSection {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-default);
+}
+
+.resetButton {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--border-radius-medium);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.resetButton:hover {
+  background-color: var(--color-background);
+}
+
+/* Info 페이지 전용 스타일 */
+.infoContainer {
+  padding: 1rem;
+  height: 100%;
+  overflow-y: auto;
+  /* ✅ 부드러운 스크롤 */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  /* 드래그 방지 */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.infoSection {
+  margin-bottom: 1.5rem;
+}
+
+.infoTitle {
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.roomInfoCard {
+  padding: 1rem;
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-primary-opacity-10);
+}
+
+.roomInfoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.roomInfoItem:last-child {
+  margin-bottom: 0;
+}
+
+.roomInfoLabel {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.roomInfoValue {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.roomCode {
+  font-size: 1rem;
+  color: var(--color-primary);
+  /* ✅ 방 코드는 복사를 위해 선택 허용 */
+  user-select: text;
+}
+
+.copyButton {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-small);
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+  cursor: pointer;
+  margin-left: 0.5rem;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.activeStatus {
+  color: var(--color-success);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.inactiveStatus {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.shortcutsCard {
+  padding: 0.75rem;
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-background);
+}
+
+.shortcutsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.shortcutItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shortcutKey {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--color-border-default);
+  background-color: var(--color-card-background);
+  color: var(--color-text);
+  font-family: monospace;
+  user-select: none;
+}
+
+.shortcutAction {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.serviceCard {
+  padding: 0.75rem;
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-background);
+  text-align: center;
+}
+
+.serviceLogo {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  user-select: none;
+}
+
+.serviceName {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.serviceCopyright {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  user-select: none;
+}
+
+.serviceButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.serviceButton {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: var(--border-radius-medium);
+  border: none;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.serviceButton.primary {
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+}
+
+.serviceButton.secondary {
+  border: 1px solid var(--color-border-default);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+}
+
+.serviceButton.secondary:hover {
+  background-color: var(--color-background-opacity-50);
+}
+
+/* ✅ 스크롤바 스타일링 - 모든 스크롤 영역에 적용 */
+.historyContainer::-webkit-scrollbar,
+.settingsContainer::-webkit-scrollbar,
+.infoContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.historyContainer::-webkit-scrollbar-track,
+.settingsContainer::-webkit-scrollbar-track,
+.infoContainer::-webkit-scrollbar-track {
+  background: var(--color-background);
+  border-radius: 3px;
+}
+
+.historyContainer::-webkit-scrollbar-thumb,
+.settingsContainer::-webkit-scrollbar-thumb,
+.infoContainer::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-opacity-30);
+  border-radius: 3px;
+}
+
+.historyContainer::-webkit-scrollbar-thumb:hover,
+.settingsContainer::-webkit-scrollbar-thumb:hover,
+.infoContainer::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-opacity-50);
+}
+
+/* Firefox 스크롤바 */
+.historyContainer,
+.settingsContainer,
+.infoContainer {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-opacity-30) var(--color-background);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .expandedPanel {
+    width: 280px;
+  }
+
+  .historyThumbnail {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* ✅ 전역 드래그 방지 규칙 강화 */
+.container *,
+.mainSidebar *,
+.expandedPanel * {
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ✅ 단, 특정 요소들은 사용자 상호작용 허용 */
+.container input,
+.container textarea,
+.container select,
+.roomCode {
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* ✅ 버튼들의 드래그 방지 강화 */
+.container button,
+.menuItem,
+.collapseButton,
+.historyButton,
+.deleteButton,
+.resetButton,
+.serviceButton,
+.copyButton {
+  -webkit-user-drag: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}

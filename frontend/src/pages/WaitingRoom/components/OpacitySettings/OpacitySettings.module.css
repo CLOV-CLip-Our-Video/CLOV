@@ -1,0 +1,79 @@
+/* OpacitySettings.module.css - Copy from WaitingRoom.module.css */
+
+.settingCard {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.cardDescription {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+
+.sliderSection {
+  margin-bottom: 16px;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.sliderLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.sliderValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary-darker);
+}
+
+.slider {
+  margin-bottom: 12px;
+}
+
+.sliderPresets {
+  display: flex;
+  gap: 8px;
+}
+
+.preset {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid var(--border-color-default);
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.preset:hover {
+  border-color: var(--border-color-default);
+  background: var(--color-background);
+}
+
+.preset.active {
+  border-color: var(--color-primary-darker);
+  background: var(--color-primary-opacity-10);
+  color: var(--color-primary-darker);
+}

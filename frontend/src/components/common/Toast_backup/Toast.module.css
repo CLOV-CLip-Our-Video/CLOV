@@ -1,0 +1,102 @@
+/* components/common/Toast/Toast.module.css */
+
+.container {
+  pointer-events: none;
+}
+
+.toastItem {
+  pointer-events: auto;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  border: 1px solid;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.toastItem.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* 토스트 타입별 스타일 */
+.success {
+  background-color: var(--color-background);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.error {
+  background-color: var(--color-error);
+  border-color: var(--color-error);
+  color: white;
+}
+
+.warning {
+  background-color: var(--color-warning);
+  border-color: var(--color-warning);
+  color: white;
+}
+
+.info {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: white;
+}
+
+/* 닫기 버튼 */
+.closeButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 등장 애니메이션 */
+.toastItem {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 사라지는 애니메이션 */
+.toastItem.removing {
+  animation: slideOutRight 0.3s ease-in forwards;
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* 호버 시 일시정지 효과 */
+.toastItem:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 640px) {
+  .container {
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+
+  .toastItem {
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,181 @@
+/* NicknameModal.module.css - Copy from WaitingRoom.module.css */
+
+.nicknameModal {
+  padding: 4px;
+}
+
+.nicknameDescription {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.descText {
+  font-size: 1rem;
+  color: #333;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.descSubtext {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.inputContainer {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.nicknameInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border-color-default);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.nicknameInput:focus {
+  outline: none;
+  border-color: var(--color-primary-darker);
+}
+
+.nicknameInput.error {
+  border-color: #e53e3e;
+}
+
+.charCount {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.overLimit {
+  color: #e53e3e;
+  font-weight: 600;
+}
+
+.maxLength {
+  color: #999;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #fed7d7;
+  border: 1px solid #feb2b2;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #c53030;
+  margin-bottom: 16px;
+}
+
+.errorIcon {
+  font-size: 1rem;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #c6f6d5;
+  border: 1px solid #9ae6b4;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #276749;
+  margin-bottom: 16px;
+}
+
+.successIcon {
+  font-size: 1rem;
+}
+
+.suggestions {
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color-default);
+  border-radius: 8px;
+  padding-bottom: 12px;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.suggestionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.suggestionsTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.refreshButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.refreshButton:hover {
+  background: #f7fafc;
+}
+
+.suggestionTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.suggestionTag {
+  padding: 6px 12px;
+  border: 1px solid var(--border-color-default);
+  border-radius: 16px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #4a5568;
+  transition: all 0.2s ease;
+  width: 115px;
+}
+
+.suggestionTag:hover {
+  border-color: var(--color-primary-darker);
+  background: var(--color-primary-opacity-10);
+  color: var(--color-primary-darker);
+}
+
+.suggestionTag.selected {
+  border-color: var(--color-primary-darker);
+  background: var(--color-primary-opacity-10);
+  color: var(--color-primary-darker);
+  font-weight: 600;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cancelButton {
+  flex: 1;
+}
+
+.submitButton {
+  flex: 1;
+}

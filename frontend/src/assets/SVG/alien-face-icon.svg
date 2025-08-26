@@ -1,0 +1,21 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 외계인 얼굴 배경 - 머리가 넓고 턱이 뾰족, 테두리 제거 -->
+  <path d="M 4 15 C 4 9, 7 6, 13 6 L 35 6 C 41 6, 44 9, 44 15 L 44 33 C 44 39, 41 42, 35 42 L 13 42 C 7 42, 4 39, 4 33 Z" fill="#b2ada2"/>
+  
+  <!-- 큰 검은 눈들 - 기울어진 형태로 크게 -->
+  <!-- 왼쪽 눈 (기울기 -1) -->
+  <ellipse cx="15" cy="22" rx="4.5" ry="6" fill="#000000" transform="rotate(-15 15 22)"/>
+  <!-- 오른쪽 눈 (기울기 1) -->
+  <ellipse cx="33" cy="22" rx="4.5" ry="6" fill="#000000" transform="rotate(15 33 22)"/>
+  
+  <!-- 작은 미소 - 더 작게 -->
+  <path d="M 18 31 Q 24 33 30 31" stroke="#000000" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  
+  <!-- 눈의 하이라이트 - 기울어진 형태에 맞춰 -->
+  <ellipse cx="13.5" cy="20" rx="1.5" ry="2" fill="#FFFFFF" opacity="0.4" transform="rotate(-15 13.5 20)"/>
+  <ellipse cx="31.5" cy="20" rx="1.5" ry="2" fill="#FFFFFF" opacity="0.4" transform="rotate(15 31.5 20)"/>
+  
+  <!-- 추가 하이라이트 -->
+  <ellipse cx="14" cy="19" rx="0.8" ry="1.2" fill="#FFFFFF" opacity="0.6" transform="rotate(-15 14 19)"/>
+  <ellipse cx="32" cy="19" rx="0.8" ry="1.2" fill="#FFFFFF" opacity="0.6" transform="rotate(15 32 19)"/>
+</svg>

@@ -1,0 +1,185 @@
+/* RecordingControls 전용 스타일 */
+
+.controlsContainer {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 녹화 버튼 특수 효과 */
+.recordButton {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  transition: all 0.3s ease;
+}
+
+.recordButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+}
+
+.recordButton:active {
+  transform: translateY(0);
+}
+
+/* 녹화 아이콘 애니메이션 */
+.recordIcon {
+  animation: recordPulse 2s ease-in-out infinite;
+}
+
+@keyframes recordPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* 중지 버튼 특수 효과 */
+.stopButton {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+  transition: all 0.3s ease;
+  animation: recordingGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes recordingGlow {
+  0%, 100% { 
+    box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+  }
+  50% { 
+    box-shadow: 0 4px 16px rgba(244, 67, 54, 0.5);
+  }
+}
+
+.stopButton:hover {
+  transform: translateY(-2px);
+  animation: none;
+  box-shadow: 0 6px 16px rgba(244, 67, 54, 0.4);
+}
+
+/* 중지 아이콘 애니메이션 */
+.stopIcon {
+  animation: stopBlink 1s ease-in-out infinite;
+}
+
+@keyframes stopBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.7; }
+}
+
+/* 홈 버튼 */
+.homeButton {
+  transition: all 0.2s ease;
+}
+
+.homeButton:hover {
+  transform: translateY(-1px);
+}
+
+/* 도움말 버튼 */
+.helpButton {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+  transition: all 0.3s ease;
+}
+
+.helpButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
+}
+
+.helpButton:active {
+  transform: translateY(0);
+}
+
+/* 버튼 리플 효과 */
+.recordButton::before,
+.stopButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.recordButton:active::before,
+.stopButton:active::before {
+  width: 120px;
+  height: 120px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .controlsContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .recordButton,
+  .stopButton {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .homeButton {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recordButton,
+  .stopButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* 접근성 개선 */
+.recordButton:focus,
+.stopButton:focus,
+.homeButton:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* 고대비 모드 */
+@media (prefers-contrast: high) {
+  .recordButton,
+  .stopButton {
+    border: 2px solid currentColor;
+  }
+}
+
+/* 애니메이션 감소 모드 */
+@media (prefers-reduced-motion: reduce) {
+  .controlsContainer,
+  .recordIcon,
+  .stopIcon,
+  .recordButton,
+  .stopButton,
+  .homeButton {
+    animation: none;
+    transition: none;
+  }
+  
+  .recordButton::before,
+  .stopButton::before {
+    display: none;
+  }
+}
