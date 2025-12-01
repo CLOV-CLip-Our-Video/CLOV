@@ -59,14 +59,16 @@
 
 
 ## 아키텍쳐
-![architecture](https://github.com/user-attachments/assets/043d05a2-04d1-4232-b903-5cd28e73c703)
+<img width="813" height="689" alt="image" src="https://github.com/user-attachments/assets/dd7dc8c8-5f66-49df-a37e-2c63c21501d0" />
+
 
 ## API 명세
 [API 명세서 바로가기](https://yxin.notion.site/API-2297c9100471819b8c22c55fe0bcf8c2?source=copy_link)
 
 
 ## ERD
-![erd](https://github.com/user-attachments/assets/f768e1f9-13e6-4c34-9d15-36a98465a9cd)
+<img width="882" height="356" alt="image" src="https://github.com/user-attachments/assets/acc1b43d-a9a3-437a-b3ec-70d2d7704db4" />
+
 
 ## 기술 스택
 
